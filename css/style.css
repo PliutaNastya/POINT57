@@ -617,6 +617,8 @@ h6 {
   aspect-ratio: 1;
   border-radius: 50%;
   border-radius: 40px;
+  font-weight: 300;
+  font-size: 1.875rem;
   border: 2px solid transparent;
   background: linear-gradient(white,#fff) padding-box,linear-gradient(135deg,#55faee,#24a9f2,#013a56) border-box;
   transition: all .3s
@@ -2120,6 +2122,7 @@ h6 {
   }
   .carousel__button-next:hover,
   .carousel__button-prev:hover {
-    border-color: #f16825
+    border-color: #f16825;
+    color: #f16825
   }
 }
