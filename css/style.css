@@ -1051,10 +1051,6 @@ h6 {
   .reasons__item p {
     font-size: 1.25rem
   }
-  .reasons__item p:not(:last-child) {
-    -webkit-margin-after: 1.25rem;
-    margin-block-end: 1.25rem
-  }
   .reserve-spot__container {
     -webkit-padding-before: 6.875rem;
     padding-block-start: 6.875rem
@@ -1272,10 +1268,6 @@ h6 {
   .reasons__item p {
     font-size: 1rem
   }
-  .reasons__item p:not(:last-child) {
-    -webkit-margin-after: .625rem;
-    margin-block-end: .625rem
-  }
   .reserve-spot__container {
     -webkit-padding-before: 2.5rem;
     padding-block-start: 2.5rem
@@ -1492,6 +1484,12 @@ h6 {
     border-radius: 1.25rem
   }
 }
+@media (max-width:47.99875em)and (max-width:20em) {
+  .reasons__item p:not(:last-child) {
+    -webkit-margin-after: .625rem;
+    margin-block-end: .625rem
+  }
+}
 @media (max-width:39.37375em) {
   .timer__body {
     flex-direction: column;
@@ -1669,10 +1667,6 @@ h6 {
   .reasons__item p {
     font-size: clamp(1rem ,.9191919192rem + .404040404vw ,1.25rem)
   }
-  .reasons__item p:not(:last-child) {
-    -webkit-margin-after: clamp(.625rem ,.422979798rem + 1.0101010101vw ,1.25rem);
-    margin-block-end: clamp(.625rem ,.422979798rem + 1.0101010101vw ,1.25rem)
-  }
   .reserve-spot__container {
     -webkit-padding-before: clamp(2.5rem ,1.0858585859rem + 7.0707070707vw ,6.875rem);
     padding-block-start: clamp(2.5rem ,1.0858585859rem + 7.0707070707vw ,6.875rem)
@@ -1808,6 +1802,18 @@ h6 {
 @media (min-width:62.06125em)and (max-width:81.875em) {
   .reasons__list {
     gap: clamp(1.5625rem ,-5.2892561983rem + 11.040312914vw ,3.75rem)
+  }
+}
+@media (max-width:47.99875em)and (min-width:81.875em) {
+  .reasons__item p:not(:last-child) {
+    -webkit-margin-after: 1.25rem;
+    margin-block-end: 1.25rem
+  }
+}
+@media (max-width:47.99875em)and (min-width:20em)and (max-width:81.875em) {
+  .reasons__item p:not(:last-child) {
+    -webkit-margin-after: clamp(.625rem ,.422979798rem + 1.0101010101vw ,1.25rem);
+    margin-block-end: clamp(.625rem ,.422979798rem + 1.0101010101vw ,1.25rem)
   }
 }
 @media (min-width:53.12375em)and (max-width:81.875em) {
