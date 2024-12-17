@@ -507,17 +507,23 @@ h6 {
 .date-location {
   position: relative
 }
+.date-location::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: -1;
+  background: url(../img/date_location/bg_gradient.svg) center bottom/100% no-repeat
+}
 .date-location__name {
-  color: #1e252d;
-  opacity: .05;
-  font-weight: 700;
-  position: relative;
-  z-index: 1;
+  position: absolute;
   top: 0;
-  left: -50%;
-  -webkit-transform: translateX(50%);
-  transform: translateX(50%);
-  text-align: center
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 97%
 }
 .date-location__bg {
   position: absolute;
@@ -537,8 +543,9 @@ h6 {
   color: #fff;
   max-width: 67.1875rem;
   margin-inline: auto;
-  -webkit-margin-before: 20%;
-  margin-block-start: 20%;
+  height: 100%;
+  -webkit-padding-before: 55%;
+  padding-block-start: 55%;
   -webkit-padding-after: 1.875rem;
   padding-block-end: 1.875rem
 }
@@ -563,6 +570,56 @@ h6 {
 .date-location__item h4:not(:last-child) {
   -webkit-margin-after: .625rem;
   margin-block-end: .625rem
+}
+.carousel__body {
+  max-width: 142.1875rem;
+  margin-inline: auto;
+  -webkit-margin-before: 50px;
+  margin-block-start: 50px
+}
+.carousel__wrapper {
+  display: grid;
+  grid-template-columns: repeat(5,1fr)
+}
+.carousel__slide {
+  padding-inline: 10px;
+  transition: all .3s
+}
+.carousel__img {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 433/605
+}
+.carousel__img img {
+  width: 100%;
+  border-radius: 1.875rem
+}
+.carousel__text {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: .075rem;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(-1.25rem,-1.25rem) rotate(-180deg);
+  transform: translate(-1.25rem,-1.25rem) rotate(-180deg)
+}
+.carousel__controls {
+  text-align: center
+}
+.carousel__button-next,
+.carousel__button-prev {
+  width: 3.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border-radius: 40px;
+  border: 2px solid transparent;
+  background: linear-gradient(white,#fff) padding-box,linear-gradient(135deg,#55faee,#24a9f2,#013a56) border-box;
+  transition: all .3s
 }
 .event-schedule__container {
   max-width: 72.5rem;
@@ -891,6 +948,14 @@ h6 {
   }
 }
 @media (min-width:47.99875em) {
+  .date-location::after {
+    -webkit-transform: translateY(20%);
+    transform: translateY(20%)
+  }
+  .carousel__slide:nth-child(odd) {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px)
+  }
   .event-schedule__body {
     grid-template-columns: 1fr 1.9fr
   }
@@ -1070,7 +1135,12 @@ h6 {
     padding-block-end: 14.375rem
   }
   .page__event-schedule {
-    padding-block: 6.25rem
+    -webkit-padding-before: 6.25rem;
+    padding-block-start: 6.25rem
+  }
+  .page__event-schedule {
+    -webkit-padding-after: 6.25rem;
+    padding-block-end: 6.25rem
   }
   .page__why-attend {
     padding-block: 10.625rem
@@ -1135,11 +1205,15 @@ h6 {
   .date-location {
     min-height: 80.1875rem
   }
-  .date-location__name {
-    font-size: 22.0625rem
-  }
   .date-location__item {
     font-size: 1.25rem
+  }
+  .carousel__text {
+    font-size: 1.5rem
+  }
+  .carousel__controls {
+    -webkit-margin-before: 2.5rem;
+    margin-block-start: 2.5rem
   }
   .event-schedule__day span {
     font-size: 1.125rem
@@ -1299,7 +1373,12 @@ h6 {
     padding-block-end: 2.5rem
   }
   .page__event-schedule {
-    padding-block: 2.5rem
+    -webkit-padding-before: 4.375rem;
+    padding-block-start: 4.375rem
+  }
+  .page__event-schedule {
+    -webkit-padding-after: 2.5rem;
+    padding-block-end: 2.5rem
   }
   .page__why-attend {
     padding-block: 2.5rem
@@ -1370,11 +1449,15 @@ h6 {
   .date-location {
     min-height: 43.75rem
   }
-  .date-location__name {
-    font-size: 4.375rem
-  }
   .date-location__item {
     font-size: 1rem
+  }
+  .carousel__text {
+    font-size: 1.25rem
+  }
+  .carousel__controls {
+    -webkit-margin-before: 1.25rem;
+    margin-block-start: 1.25rem
   }
   .event-schedule__day span {
     font-size: 1rem
@@ -1579,8 +1662,7 @@ h6 {
     padding-block-end: .625rem
   }
   .date-location__container {
-    -webkit-margin-before: 35%;
-    margin-block-start: 35%
+    text-shadow: 0 0 5px #000
   }
   .event-schedule__day {
     display: flex;
@@ -1660,12 +1742,6 @@ h6 {
     width: 100%
   }
 }
-@media (max-width:26.87375em) {
-  .date-location__container {
-    -webkit-margin-before: 86%;
-    margin-block-start: 86%
-  }
-}
 @media (max-width:62.06125em)and (min-width:81.875em) {
   .menu__body::before {
     height: 7.5rem
@@ -1735,7 +1811,12 @@ h6 {
     padding-block-end: clamp(2.5rem ,-1.3383838384rem + 19.1919191919vw ,14.375rem)
   }
   .page__event-schedule {
-    padding-block: clamp(2.5rem ,1.2878787879rem + 6.0606060606vw ,6.25rem)
+    -webkit-padding-before: clamp(4.375rem ,3.7689393939rem + 3.0303030303vw ,6.25rem);
+    padding-block-start: clamp(4.375rem ,3.7689393939rem + 3.0303030303vw ,6.25rem)
+  }
+  .page__event-schedule {
+    -webkit-padding-after: clamp(2.5rem ,1.2878787879rem + 6.0606060606vw ,6.25rem);
+    padding-block-end: clamp(2.5rem ,1.2878787879rem + 6.0606060606vw ,6.25rem)
   }
   .page__why-attend {
     padding-block: clamp(2.5rem ,-.1262626263rem + 13.1313131313vw ,10.625rem)
@@ -1797,11 +1878,15 @@ h6 {
   .date-location {
     min-height: clamp(43.75rem ,31.9722222222rem + 58.8888888889vw ,80.1875rem)
   }
-  .date-location__name {
-    font-size: clamp(4.375rem ,-1.3421717172rem + 28.5858585859vw ,22.0625rem)
-  }
   .date-location__item {
     font-size: clamp(1rem ,.9191919192rem + .404040404vw ,1.25rem)
+  }
+  .carousel__text {
+    font-size: clamp(1.25rem ,1.1691919192rem + .404040404vw ,1.5rem)
+  }
+  .carousel__controls {
+    -webkit-margin-before: clamp(1.25rem ,.845959596rem + 2.0202020202vw ,2.5rem);
+    margin-block-start: clamp(1.25rem ,.845959596rem + 2.0202020202vw ,2.5rem)
   }
   .event-schedule__day span {
     font-size: clamp(1rem ,.9595959596rem + .202020202vw ,1.125rem)
@@ -2032,5 +2117,9 @@ h6 {
   .item-our-philosophy:hover {
     -webkit-transform: scale(1.01);
     transform: scale(1.01)
+  }
+  .carousel__button-next:hover,
+  .carousel__button-prev:hover {
+    border-color: #f16825
   }
 }
