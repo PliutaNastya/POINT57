@@ -367,7 +367,7 @@
     document.addEventListener("DOMContentLoaded", (function() {
         const reasonsItems = document.querySelectorAll(".reasons__item");
         const displayImage = document.getElementById("display-image");
-        reasonsItems.forEach((item => {
+        if (window.innerWidth > 767.98) reasonsItems.forEach((item => {
             item.addEventListener("click", (function() {
                 reasonsItems.forEach((el => el.classList.remove("active")));
                 this.classList.add("active");
@@ -376,7 +376,7 @@
                 setTimeout((() => {
                     displayImage.src = newImage;
                     displayImage.style.opacity = "1";
-                }), 100);
+                }), 150);
             }));
         }));
     }));
