@@ -364,6 +364,22 @@
         if (timeRemaining < 0) document.querySelector(".timer-container").innerHTML = "<div>Event has started!</div>";
     }
     setInterval(updateTimer, 1e3);
+    document.addEventListener("DOMContentLoaded", (function() {
+        const reasonsItems = document.querySelectorAll(".reasons__item");
+        const displayImage = document.getElementById("display-image");
+        reasonsItems.forEach((item => {
+            item.addEventListener("click", (function() {
+                reasonsItems.forEach((el => el.classList.remove("active")));
+                this.classList.add("active");
+                const newImage = this.getAttribute("data-image");
+                displayImage.style.opacity = "0";
+                setTimeout((() => {
+                    displayImage.src = newImage;
+                    displayImage.style.opacity = "1";
+                }), 100);
+            }));
+        }));
+    }));
     window["FLS"] = true;
     spollers();
     pageNavigation();
