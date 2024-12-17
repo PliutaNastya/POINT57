@@ -365,6 +365,27 @@
     }
     setInterval(updateTimer, 1e3);
     document.addEventListener("DOMContentLoaded", (function() {
+        const dayButtons = document.querySelectorAll(".event-schedule__day");
+        const dayContents = document.querySelectorAll(".event-schedule__day-content");
+        function showDayContent(selectedDay) {
+            dayContents.forEach((content => {
+                content.style.display = "none";
+            }));
+            const activeContent = document.querySelector(`#day-${selectedDay}`);
+            if (activeContent) activeContent.style.display = "block";
+        }
+        dayButtons.forEach((button => {
+            button.addEventListener("click", (function() {
+                const selectedDay = button.dataset.day;
+                dayButtons.forEach((btn => btn.classList.remove("active")));
+                button.classList.add("active");
+                showDayContent(selectedDay);
+            }));
+        }));
+        showDayContent(1);
+        dayButtons[0].classList.add("active");
+    }));
+    document.addEventListener("DOMContentLoaded", (function() {
         const reasonsItems = document.querySelectorAll(".reasons__item");
         const displayImage = document.getElementById("display-image");
         if (window.innerWidth > 767.98) reasonsItems.forEach((item => {
