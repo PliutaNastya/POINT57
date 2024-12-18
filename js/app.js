@@ -1,6 +1,13 @@
 (() => {
     "use strict";
     const modules_flsModules = {};
+    function addLoadedClass() {
+        if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
+            setTimeout((function() {
+                document.documentElement.classList.add("loaded");
+            }), 0);
+        }));
+    }
     function getHash() {
         if (location.hash) return location.hash.replace("#", "");
     }
@@ -3729,11 +3736,11 @@
                 },
                 520: {
                     slidesPerView: 2,
-                    spaceBetween: 10
+                    spaceBetween: 15
                 },
                 768: {
                     slidesPerView: 3,
-                    spaceBetween: 10
+                    spaceBetween: 15
                 },
                 992: {
                     slidesPerView: 1.5,
@@ -3741,7 +3748,7 @@
                 },
                 1280: {
                     slidesPerView: 2.5,
-                    spaceBetween: 20
+                    spaceBetween: 15
                 }
             },
             on: {}
@@ -3945,6 +3952,7 @@
         }));
     }));
     window["FLS"] = true;
+    addLoadedClass();
     spollers();
     pageNavigation();
 })();

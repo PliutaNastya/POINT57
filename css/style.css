@@ -76,6 +76,10 @@ h6 {
   -ms-scroll-chaining: none;
   overscroll-behavior: none
 }
+.loaded body {
+  transition: opacity .3s;
+  opacity: 1
+}
 .menu-open body {
   overflow: hidden
 }
@@ -215,6 +219,15 @@ h6 {
   -webkit-margin-after: .625rem;
   margin-block-end: .625rem
 }
+.slider-button {
+  border-radius: 50%;
+  font-size: 1.25rem;
+  transition: all .3s;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
 .header {
   position: sticky;
   top: 0;
@@ -296,8 +309,8 @@ h6 {
   text-align: center
 }
 .page__location {
-  -webkit-padding-before: 2.5rem;
-  padding-block-start: 2.5rem
+  -webkit-padding-before: 5rem;
+  padding-block-start: 5rem
 }
 .hero {
   position: relative
@@ -313,7 +326,9 @@ h6 {
   max-width: 115rem;
   margin-inline: auto;
   background: linear-gradient(290deg,#013a56 46.28%,#24a9f2 118.3%),linear-gradient(180deg,#f16825 0,#fbb355 116.33%);
-  min-height: 0
+  min-height: 0;
+  -webkit-padding-after: 5rem;
+  padding-block-end: 5rem
 }
 .hero__bg {
   position: absolute;
@@ -626,12 +641,8 @@ h6 {
 .carousel__button-prev {
   width: 3.25rem;
   height: 3.25rem;
-  line-height: 3.25rem;
-  border-radius: 50%;
-  font-weight: 300;
   font-size: 1.875rem;
   color: #8cb3c3;
-  border: 2px solid transparent;
   background: linear-gradient(white,#fff) padding-box,linear-gradient(135deg,#55faee,#24a9f2,#013a56) border-box;
   transition: all .3s
 }
@@ -756,8 +767,8 @@ h6 {
   display: block
 }
 .reserve-spot__container {
-  -webkit-padding-after: 18.75rem;
-  padding-block-end: 18.75rem;
+  -webkit-padding-after: 5rem;
+  padding-block-end: 5rem;
   max-width: 115rem;
   margin-inline: auto;
   background: #92d0ef
@@ -947,16 +958,12 @@ h6 {
 .location__button-prev {
   width: 2.5rem;
   height: 2.5rem;
-  line-height: 2.5rem;
-  border-radius: 50%;
-  font-weight: 300;
-  font-size: 1.25rem;
   color: #f16825;
-  border: 2px solid transparent;
-  background: linear-gradient(white,#fff) padding-box,linear-gradient(94deg,#fbb355 -29.4%,#f16825 113.37%) border-box;
-  transition: all .3s
+  background: linear-gradient(white,#fff) padding-box,linear-gradient(94deg,#fbb355 -29.4%,#f16825 113.37%) border-box
 }
 .faqs__container {
+  -webkit-padding-after: 5rem;
+  padding-block-end: 5rem;
   max-width: 115rem;
   margin-inline: auto;
   background: linear-gradient(0deg,#f4fbff 0,#f4fbff 100%),linear-gradient(180deg,#f16825 0,#fbb355 116.33%)
@@ -1139,20 +1146,16 @@ h6 {
     height: 92.592593%
   }
   .reserve-spot__item {
-    grid-template-columns: 1fr 2fr;
-    border-radius: 2.5rem
+    grid-template-columns: 1fr 2fr
   }
   .item-reserve__content {
     align-self: center;
     padding: .625rem
   }
-  .application {
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%)
-  }
 }
 @media (min-width:61.99875em) {
   .location__content {
+    padding-block: 3.125rem;
     position: relative;
     flex: 0 0 50%;
     -webkit-padding-end: 1.875rem;
@@ -1193,10 +1196,16 @@ h6 {
     -webkit-margin-before: -80px;
     margin-block-start: -80px
   }
+  .page__location {
+    -webkit-padding-before: 0;
+    padding-block-start: 0
+  }
   .hero__container--gradient {
     border-radius: 2.5rem;
     -webkit-margin-before: -5rem;
-    margin-block-start: -5rem
+    margin-block-start: -5rem;
+    -webkit-padding-after: 16.875rem;
+    padding-block-end: 16.875rem
   }
   .why-attend {
     border-radius: 2.5rem
@@ -1204,16 +1213,22 @@ h6 {
   .reserve-spot__container {
     border-radius: 2.5rem;
     -webkit-margin-before: -5rem;
-    margin-block-start: -5rem
+    margin-block-start: -5rem;
+    -webkit-padding-after: 18.75rem;
+    padding-block-end: 18.75rem
   }
-  .faqs__container {
-    border-radius: 2.5rem
-  }
-}
-@media (min-width:78.74875em) {
   .application {
     border-radius: 2.5rem;
-    max-width: 76.875rem
+    max-width: 76.875rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-margin-after: 1.875rem;
+    margin-block-end: 1.875rem
+  }
+  .faqs__container {
+    border-radius: 2.5rem;
+    -webkit-padding-after: 14.375rem;
+    padding-block-end: 14.375rem
   }
 }
 @media (min-width:81.875em) {
@@ -1286,16 +1301,12 @@ h6 {
     padding-block: 10.625rem
   }
   .page__location {
-    -webkit-padding-after: 8.75rem;
-    padding-block-end: 8.75rem
+    -webkit-padding-after: 6.25rem;
+    padding-block-end: 6.25rem
   }
   .hero__container {
     -webkit-padding-before: 6.875rem;
     padding-block-start: 6.875rem
-  }
-  .hero__container--gradient {
-    -webkit-padding-after: 16.875rem;
-    padding-block-end: 16.875rem
   }
   .hero__label {
     font-size: 1.75rem
@@ -1442,10 +1453,6 @@ h6 {
     -webkit-padding-before: 6.875rem;
     padding-block-start: 6.875rem
   }
-  .faqs__container {
-    -webkit-padding-after: 14.375rem;
-    padding-block-end: 14.375rem
-  }
   .faqs__title:not(:last-child) {
     -webkit-margin-after: 2.1875rem;
     margin-block-end: 2.1875rem
@@ -1550,10 +1557,6 @@ h6 {
   .hero__container {
     -webkit-padding-before: 3.125rem;
     padding-block-start: 3.125rem
-  }
-  .hero__container--gradient {
-    -webkit-padding-after: 3.125rem;
-    padding-block-end: 3.125rem
   }
   .hero__label {
     font-size: 1.125rem
@@ -1683,10 +1686,6 @@ h6 {
   .faqs__container {
     -webkit-padding-before: 2.5rem;
     padding-block-start: 2.5rem
-  }
-  .faqs__container {
-    -webkit-padding-after: 3.125rem;
-    padding-block-end: 3.125rem
   }
   .faqs__title:not(:last-child) {
     -webkit-margin-after: .9375rem;
@@ -1877,13 +1876,9 @@ h6 {
     padding: 1.875rem .625rem .625rem .625rem;
     border-radius: 1.25rem
   }
-  .reserve-spot__container {
-    -webkit-padding-after: 2.5rem;
-    padding-block-end: 2.5rem
-  }
   .reserve-spot__item {
     background: linear-gradient(154deg,rgba(85,250,238,0) -98.88%,#55faee -35.95%,#24a9f2 20.1%,#013a56 94.64%);
-    min-height: 37.1875rem
+    min-height: 28.4375rem
   }
   .item-reserve__img {
     position: absolute;
@@ -2018,16 +2013,12 @@ h6 {
     padding-block: clamp(2.5rem ,-.1262626263rem + 13.1313131313vw ,10.625rem)
   }
   .page__location {
-    -webkit-padding-after: clamp(2.5rem ,.4797979798rem + 10.101010101vw ,8.75rem);
-    padding-block-end: clamp(2.5rem ,.4797979798rem + 10.101010101vw ,8.75rem)
+    -webkit-padding-after: clamp(2.5rem ,1.2878787879rem + 6.0606060606vw ,6.25rem);
+    padding-block-end: clamp(2.5rem ,1.2878787879rem + 6.0606060606vw ,6.25rem)
   }
   .hero__container {
     -webkit-padding-before: clamp(3.125rem ,1.9128787879rem + 6.0606060606vw ,6.875rem);
     padding-block-start: clamp(3.125rem ,1.9128787879rem + 6.0606060606vw ,6.875rem)
-  }
-  .hero__container--gradient {
-    -webkit-padding-after: clamp(3.125rem ,-1.3194444444rem + 22.2222222222vw ,16.875rem);
-    padding-block-end: clamp(3.125rem ,-1.3194444444rem + 22.2222222222vw ,16.875rem)
   }
   .hero__label {
     font-size: clamp(1.125rem ,.922979798rem + 1.0101010101vw ,1.75rem)
@@ -2148,10 +2139,6 @@ h6 {
   .faqs__container {
     -webkit-padding-before: clamp(2.5rem ,1.0858585859rem + 7.0707070707vw ,6.875rem);
     padding-block-start: clamp(2.5rem ,1.0858585859rem + 7.0707070707vw ,6.875rem)
-  }
-  .faqs__container {
-    -webkit-padding-after: clamp(3.125rem ,-.5113636364rem + 18.1818181818vw ,14.375rem);
-    padding-block-end: clamp(3.125rem ,-.5113636364rem + 18.1818181818vw ,14.375rem)
   }
   .faqs__title:not(:last-child) {
     -webkit-margin-after: clamp(.9375rem ,.533459596rem + 2.0202020202vw ,2.1875rem);
