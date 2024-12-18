@@ -3899,17 +3899,26 @@
         const eventDate = new Date("May 7, 2025 00:00:00").getTime();
         const now = (new Date).getTime();
         const timeRemaining = eventDate - now;
-        const days = Math.floor(timeRemaining / (1e3 * 60 * 60 * 24));
-        const hours = Math.floor(timeRemaining % (1e3 * 60 * 60 * 24) / (1e3 * 60 * 60));
-        const minutes = Math.floor(timeRemaining % (1e3 * 60 * 60) / (1e3 * 60));
-        const seconds = Math.floor(timeRemaining % (1e3 * 60) / 1e3);
+        let days, hours, minutes, seconds;
+        if (timeRemaining >= 0) {
+            days = Math.floor(timeRemaining / (1e3 * 60 * 60 * 24));
+            hours = Math.floor(timeRemaining % (1e3 * 60 * 60 * 24) / (1e3 * 60 * 60));
+            minutes = Math.floor(timeRemaining % (1e3 * 60 * 60) / (1e3 * 60));
+            seconds = Math.floor(timeRemaining % (1e3 * 60) / 1e3);
+        } else {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            document.querySelector(".timer__content").innerHTML = "<div>Event has started!</div>";
+            clearInterval(timerInterval);
+        }
         document.getElementById("days").textContent = days;
         document.getElementById("hours").textContent = hours;
         document.getElementById("minutes").textContent = minutes;
         document.getElementById("seconds").textContent = seconds;
-        if (timeRemaining < 0) document.querySelector(".timer-container").innerHTML = "<div>Event has started!</div>";
     }
-    setInterval(updateTimer, 1e3);
+    const timerInterval = setInterval(updateTimer, 1e3);
     document.addEventListener("DOMContentLoaded", (function() {
         const dayButtons = document.querySelectorAll(".event-schedule__day");
         const dayContents = document.querySelectorAll(".event-schedule__day-content");

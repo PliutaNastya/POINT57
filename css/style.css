@@ -465,6 +465,10 @@ h6 {
   font-weight: 500;
   line-height: 1.4
 }
+.about__text p:not(:last-child) {
+  -webkit-margin-after: .625rem;
+  margin-block-end: .625rem
+}
 .our-philosophy {
   position: relative
 }
