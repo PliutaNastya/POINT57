@@ -76,10 +76,6 @@ h6 {
   -ms-scroll-chaining: none;
   overscroll-behavior: none
 }
-.loaded body {
-  transition: opacity .3s;
-  opacity: 1
-}
 .menu-open body {
   overflow: hidden
 }
